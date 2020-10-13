@@ -80,3 +80,25 @@ Route::get('/category/delete/{id}',[
     'uses'=>"App\Http\Controllers\CategoryController@deletecategoryinfo",
     'as'=>'delete-category'
 ]);
+// brand==========
+Route::get('/brand/add',[
+    'uses'=>"App\Http\Controllers\brandController@index",
+    'as'=>'brand/add'
+]);
+Route::post('/brand/save',[
+    'uses'=>"App\Http\Controllers\brandController@savebrand",
+    'as'=>'new-brand'
+]);
+//product
+Route::get('/product/add',[
+    'uses'=>"App\Http\Controllers\productController@index",
+    'as'=>'product/add'
+]);
+Route::post('/product/save',[
+    'uses'=>"App\Http\Controllers\productController@saveproduct",
+    'as'=>'product/new'
+]);
+Route::get('/product/manage',[
+    'uses'=>"App\Http\Controllers\productController@manageproduct",
+    'as'=>'product/manage'
+]);

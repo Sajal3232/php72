@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="well">
-            @if ($message=Session::get('message'))
+           @if ($message=Session::get('message'))
                 <h2 id="xyz" class="text-center text-success">{{$message}}</h2>
             @endif
             <table class="table">
@@ -35,10 +35,10 @@
                     @endif
 
                     <a href="{{route('edit-category',['id'=>$category->id])}}" class="btn btn-success btn-sm">
-                    <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                    <i class="fas fa-edit    "></i>
                     </a>
                     <a href="{{route('delete-category',['id'=>$category->id])}}" class="btn btn-danger btn-sm">
-                        <span class="glyphicon glyphicon-trash"></span>
+                        <i class="fas fa-trash    "></i>
                     </a>
 
                 </td>
