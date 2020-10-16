@@ -20,13 +20,15 @@
 									</ul>
 								</div>
 								<div class="col-md-3 footer-grid">
-									<h4>Information</h4>
+									<h4>Brands</h4>
 									<ul>
-										<li><a href="index.html">Home</a></li>
-										<li><a href="products.html">Products</a></li>
+                                        @foreach($brands as $brand)
+                                        <li><a href="">{{$brand->brand_name}}</a></li>
+                                        @endforeach
+										<!-- <li><a href="products.html">Products</a></li>
 										<li><a href="codes.html">Short Codes</a></li>
 										<li><a href="mail.html">Mail Us</a></li>
-										<li><a href="products1.html">products1</a></li>
+										<li><a href="products1.html">products1</a></li> -->
 									</ul>
 								</div>
 								<div class="col-md-3 footer-grid foot">
@@ -56,3 +58,5 @@
 							<div class="clearfix"></div>
 						</div>
 					</div>
+
+					

@@ -31,11 +31,14 @@ Route::get('/',[
     'uses' => 'App\Http\Controllers\NewShopController@index',
     'as' => '/'
 ]);
-Route::get('/catagory-product',[
+Route::get('/catagory-product/{id}',[
     'uses' => 'App\Http\Controllers\NewShopController@categoryProduct',
     'as' => 'category-product'
 ]);
-
+Route::get('/product-details/{id}',[
+    'uses' => 'App\Http\Controllers\NewShopController@productdetails',
+    'as' => 'product-details'
+]);
 Route::get('/mail-us',[
     'uses' => 'App\Http\Controllers\NewShopController@mailUs',
     'as' => 'mail-us'
@@ -88,6 +91,10 @@ Route::get('/brand/add',[
 Route::post('/brand/save',[
     'uses'=>"App\Http\Controllers\brandController@savebrand",
     'as'=>'new-brand'
+]);
+Route::get('/brand/product',[
+    'uses'=>"App\Http\Controllers\brandController@brandsproduct",
+    'as'=>'brands-product'
 ]);
 //product
 Route::get('/product/add',[

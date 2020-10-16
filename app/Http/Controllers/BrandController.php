@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class BrandController extends Controller
@@ -25,4 +26,10 @@ class BrandController extends Controller
 
        return redirect('/brand/add')->with('message', 'brand info add successfully');
     }
+
+    // public function brandsproduct(){
+    //         $newproducts=Brand::where('publication_status', 1)->get();
+    //         return view('front-end.home.home', ['newproducts'=>$newproducts]);       
+
+    // }
 }

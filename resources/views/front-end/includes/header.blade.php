@@ -33,7 +33,9 @@
 							</div> 
 							<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 								<ul class="nav navbar-nav">
-									<li class="active"><a href="{{route ('/')}}" class="act">Home</a></li>	
+                                    @foreach($categories as $category)
+                                    <li class="active"><a href="{{route ('category-product',['id'=>$category->id])}}" class="act">{{ $category->category_name}}</a></li>
+                                    @endforeach	
 									<!-- Mega Menu -->
 									
 								</ul>
