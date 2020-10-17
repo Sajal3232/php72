@@ -79,4 +79,15 @@ class Productcontroller extends Controller
 
         return view('admin.product.manage-product',['products'=>$products]);
     }
+
+    public function editproduct($id){
+       $products= Product::find($id);
+      $categories= Category::where('publication_status', 1)->get();
+      $brands= Brand::where('publication_status', 1)->get();
+        return view('admin.product.edit-product',[
+            'product'=>$products,
+            'categories'=>$categories,
+            'brands'=>$brands
+        ]);
+    }
 }

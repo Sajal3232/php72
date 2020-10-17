@@ -109,3 +109,7 @@ Route::get('/product/manage',[
     'uses'=>"App\Http\Controllers\productController@manageproduct",
     'as'=>'product/manage'
 ]);
+Route::get('/product/edit/{id}',[
+    'uses'=>"App\Http\Controllers\productController@editproduct",
+    'as'=>'product/edit'
+]);

@@ -33,7 +33,22 @@
                         <td>{{$product->product_price}}</td>
                         <td>{{$product->product_quantity}}</td>
                         <td>{{$product->publication_status}}</td>
-                        <td>demo</td>
+                        <td>
+
+                    <a href="" class="btn btn-info btn-sm" title='view'>
+                        <span class=""><i class="fas fa-street-view    "></i></span>
+                    </a>
+                    <a href="" class="btn btn-info btn-sm" title="published">
+                        <span class=""><i class="fa fa-arrow-up" aria-hidden="true"></i></span>
+                    </a>
+
+                    <a href="{{route('product/edit',['id'=>$product->id])}}" class="btn btn-success btn-sm" title="edit">
+                    <i class="fas fa-edit    "></i>
+                    </a>
+                    <a href="" class="btn btn-danger btn-sm" title="delete">
+                        <i class="fas fa-trash    "></i>
+                    </a>
+                        </td>
                         
                     </tr>
                 </tbody>
