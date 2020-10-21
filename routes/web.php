@@ -35,10 +35,38 @@ Route::get('/catagory-product/{id}',[
     'uses' => 'App\Http\Controllers\NewShopController@categoryProduct',
     'as' => 'category-product'
 ]);
-Route::get('/product-details/{id}',[
+Route::get('/product-details/{id}/{name}',[
     'uses' => 'App\Http\Controllers\NewShopController@productdetails',
     'as' => 'product-details'
 ]);
+
+// add to cart
+Route::post('/cart/add',[
+    'uses' => 'App\Http\Controllers\CartController@addtocart',
+    'as' => 'add-to-cart'
+]);
+Route::get('/cart/show',[
+    'uses' => 'App\Http\Controllers\CartController@showcart',
+    'as' => 'show-cart'
+]);
+Route::get('/cart/show',[
+    'uses' => 'App\Http\Controllers\CartController@showcart',
+    'as' => 'show-cart'
+]);
+Route::get('/cart/delete/{uniqueid}',[
+    'uses' => 'App\Http\Controllers\CartController@deletecartitem',
+    'as' => 'delete-cart-item'
+]);
+Route::post('/cart/update',[
+    'uses' => 'App\Http\Controllers\CartController@updatecartitem',
+    'as' => 'update-cart-quantity'
+]);
+// ////checkout
+Route::get('/cart/checkout',[
+    'uses' => 'App\Http\Controllers\CheckoutController@index',
+    'as' => 'checkout'
+]);
+
 Route::get('/mail-us',[
     'uses' => 'App\Http\Controllers\NewShopController@mailUs',
     'as' => 'mail-us'
@@ -112,4 +140,9 @@ Route::get('/product/manage',[
 Route::get('/product/edit/{id}',[
     'uses'=>"App\Http\Controllers\productController@editproduct",
     'as'=>'product/edit'
+]);
+
+Route::post('/product/update',[
+    'uses'=>"App\Http\Controllers\productController@updateproduct",
+    'as'=>'product/update'
 ]);

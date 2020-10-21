@@ -7,7 +7,7 @@
             @if($message=Session::get('message'));         
             <h2 class="text-center text-success">{{$message}}</h2>
             @endif
-            {{ Form::open(['route'=>'product/new', 'method'=>'post', 'class'=>'form-horizontal', 'enctype'=>'multipart/form-data', 'name'=>'editProductsForm']) }}
+            {{ Form::open(['route'=>'product/update', 'method'=>'post', 'class'=>'form-horizontal', 'enctype'=>'multipart/form-data', 'name'=>'editProductsForm']) }}
             <div class="form-group">
                 <label for="" class="control-label col-md-3">Category Name</label>
                 <div class="col-lg-9">
@@ -37,6 +37,7 @@
             <div class="form-group">
                 <label for="" class="control-label col-md-3">Product Name</label>
                 <input type="text" name="product_name" class='col-md-9 form-control' value="{{$product->product_name}}">
+                <input type="hidden" name="product_id" class='col-md-9 form-control' value="{{$product->id}}">
                 <span class="text-danger">{{ $errors->has('product_name') ? $errors->first('product_name') : ' '}}</span>
             </div>
 
@@ -61,12 +62,13 @@
 
             <div class="form-group">
                 <label for="" class="control-label col-md-3">{{$product->long_description}}</label>
-                <textarea name="long_description" id="editor" class="form-control col-md-9"></textarea>
+                <textarea name="long_description" id="editor" class="form-control col-md-9">{{$product->long_description}}</textarea>
             </div>
 
             <div class="form-group">
                 <label for="" class="control-label col-md-3">Product Image</label>
                 <input type="file" name="product_image" accept="image/*"><br>
+                <img src="{{asset($product->product_image)}}" alt="" height="80" width="80">
                 <span class="text-danger">{{ $errors->has('product_image') ? $errors->first('product_image') : ' '}}</span>
             </div>
 
@@ -74,12 +76,12 @@
                 <label for="" class="control-label col-md-3">Publication Status</label>
                 <span class="text-danger"></span>
                 <div class='col-md-9'>
-                    <label><input type="radio" name="publication_status"  value="1">published</label>
-                    <label><input type="radio" name="publication_status"  value="0"/>unpublished</label><br>
+                    <label><input type="radio" name="publication_status" {{$product->publication_status ==1 ? 'checked' :' '}} value="1">published</label>
+                    <label><input type="radio" name="publication_status" {{$product->publication_status ==0 ? 'checked' :' '}}  value="0"/>unpublished</label><br>
                   <span class="text-danger">  {{ $errors->has('publication_status') ? $errors->first('publication_status') : ' '}}</span>
                 </div>
             </div>
-            <input type="submit" name="btn" class='btn btn-lg btn-info' value="save product info">
+            <input type="submit" name="btn" class='btn btn-lg btn-info' value="update product info">
             {{ Form::close() }}
         </div>
     </div>

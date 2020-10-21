@@ -3,8 +3,11 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="well">
-                <h2 id="xyz" class="text-center text-success"></h2>
-            <div class="table-responsive">
+
+            @if ($message=Session::get('message'))
+                <h2 id="xyz" class="text-center text-success">{{$message}}</h2>
+            @endif           
+             <div class="table-responsive">
                 <table class="table">
                 <thead>
                     <tr>
@@ -28,7 +31,7 @@
                         <td>{{$product->brand_name}}</td>
                         <td>{{$product->product_name}}</td>
                         <td>
-                            <img src="{{asset($product->product_image)}}" alt="" height="70" width="70">
+                            <img src="{{asset($product->product_image)}}" alt="" height="80" width="80">
                         </td>
                         <td>{{$product->product_price}}</td>
                         <td>{{$product->product_quantity}}</td>

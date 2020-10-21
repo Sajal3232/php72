@@ -40,17 +40,18 @@
 									<div class="description">
 										<p><span>Quick Overview : </span> In cursus faucibus tortor eu vestibulum. Ut eget turpis ac justo porta varius. Donec vel felis ante, ac vehicula ipsum. Quisque sed diam metus. Quisque eget leo sit amet erat varius rutrum vitae dapibus lectus. Vivamus et sapien ante. Suspendisse potenti. Fusce in tellus est, ac consequat.</p>
 									</div>
+
+									{{Form::open(['route'=>'add-to-cart','method'=>'post'])}}
 									<div class="color-quality">
 										<h6>Quality :</h6>
 											<div class="quantity"> 
 												<div class="quantity-select">                           
-													<div class="entry value-minus1">&nbsp;</div>
-													<div class="entry value1"><span>1</span></div>
-													<div class="entry value-plus1 active">&nbsp;</div>
+												 <input type="number" name="qty" value="1" min="1"/>
+												 <input type="hidden" name="id" value="{{$product->id}}"/>
 												</div>
 											</div>
 												<!--quantity-->
-														<script>
+														<!-- <script>
 														$('.value-plus1').on('click', function(){
 															var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)+1;
 															divUpd.text(newVal);
@@ -60,13 +61,14 @@
 															var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)-1;
 															if(newVal>=1) divUpd.text(newVal);
 														});
-														</script>
+														</script> -->
 													<!--quantity-->
 									</div>
 									<div class="women">
 										<span class="size">XL / XXL / S </span>
-										<a href="#" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+										<input type="submit" value="Add To Cart" name="btn" class="my-cart-b item_add">
 									</div>
+									{{Form::close()}}
 									<div class="social-icon">
 										<a href="#"><i class="icon"></i></a>
 										<a href="#"><i class="icon1"></i></a>

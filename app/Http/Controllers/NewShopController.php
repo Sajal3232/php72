@@ -14,11 +14,11 @@ class NewShopController extends Controller
             ->orderBy('id','DESC')
             ->take(8)
             ->get();
-            $brands=Brand::where('publication_status', 1)->get();
+            // $brands=Brand::where('publication_status', 1)->get();
             
         return view('front-end.home.home',[
             'newproducts'=>$newproducts,
-            'brands'=>$brands
+            // 'brands'=>$brands
             ]);
     }
 

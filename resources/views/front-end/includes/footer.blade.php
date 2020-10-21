@@ -22,9 +22,7 @@
 								<div class="col-md-3 footer-grid">
 									<h4>Brands</h4>
 									<ul>
-                                        @foreach($brands as $brand)
-                                        <li><a href="">{{$brand->brand_name}}</a></li>
-                                        @endforeach
+                                     
 										<!-- <li><a href="products.html">Products</a></li>
 										<li><a href="codes.html">Short Codes</a></li>
 										<li><a href="mail.html">Mail Us</a></li>

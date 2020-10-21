@@ -90,4 +90,40 @@ class Productcontroller extends Controller
             'brands'=>$brands
         ]);
     }
+     
+
+    public function productbasicupdateinfo($products,$request,$imageurl=null){
+        $products->category_id = $request->category_id;
+        $products->brand_id = $request->brand_id;
+        $products->product_name = $request->product_name;
+        $products->product_price = $request->product_price;
+        $products->product_quantity = $request->product_quantity;
+        $products->short_description = $request->short_description;
+        if($imageurl){
+            $products->product_image = $imageurl;
+        }
+        $products->long_description = $request->long_description;
+        $products->publication_status = $request->publication_status;
+        $products->save();
+    }
+    public function updateproduct(Request $request){
+    //    $productimage= $_FILES['product_image'];
+    //    print_r($productimage);
+
+    $productimage=$request->file('product_image');
+    $products=Product::find($request->product_id);
+
+    if($productimage){
+        unlink($products->product_image);
+
+        $imageurl=$this->productImageUpload($request);
+       $this->productbasicupdateinfo($products,$request,$imageurl);
+        
+    }else{
+
+        $this->productbasicupdateinfo($products,$request);
+    }
+    return redirect('/product/manage')->with('message', 'product update successfully');
+
+ }
 }
