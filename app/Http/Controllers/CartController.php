@@ -15,7 +15,7 @@ class CartController extends Controller
        // return $request->all();
         // return $Products;
         Cart::restore($this->user_id);
-        $cartitem=Cart::add($request->id,$Products->product_name,$Products->product_price, intval($request->qty),[
+        Cart::add($request->id,$Products->product_name,$Products->product_price, intval($request->qty),[
             'image'=>$Products->product_image]);
         Cart::store($this->user_id);
         
@@ -34,6 +34,7 @@ class CartController extends Controller
         }
 
     public function showcart(){
+     Session()->flash('$this->user_id');
         Cart::restore($this->user_id);
         $cartproducts = Cart::content();
     
@@ -60,8 +61,6 @@ class CartController extends Controller
         Cart::restore($this->user_id);
         $cartItem = Cart::get($request->uniqueId);
        
-        // print_r($cartItem->options['image']);
-        // die();
         if($cartItem) {
             $qty =  intval($request->qty) - $cartItem->quantity;
             Cart::add($cartItem->id,$cartItem->name,$cartItem->price, $qty,[

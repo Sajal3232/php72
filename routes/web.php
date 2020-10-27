@@ -67,6 +67,64 @@ Route::get('/cart/checkout',[
     'as' => 'checkout'
 ]);
 
+Route::post('/customer/registration',[
+    'uses' => 'App\Http\Controllers\CheckoutController@customersignup',
+    'as' => 'customer-sign-up'
+]);
+
+Route::get('/checkout/shipping',[
+    'uses' => 'App\Http\Controllers\CheckoutController@shippingForm',
+    'as' => 'checkout-shipping'
+]);
+
+Route::post('/shipping/save',[
+    'uses' => 'App\Http\Controllers\CheckoutController@saveshippinginfo',
+    'as' => 'new-shipping'
+]);
+Route::get('/checkout/payment',[
+    'uses' => 'App\Http\Controllers\CheckoutController@paymentForm',
+    'as' => 'checkout-payment'
+]);
+
+Route::post('/checkout/order',[
+    'uses' => 'App\Http\Controllers\CheckoutController@newOrder',
+    'as' => 'new-order'
+]);
+
+Route::get('/complete/order',[
+    'uses' => 'App\Http\Controllers\CheckoutController@completeOrder',
+    'as' => 'complete-order'
+]);
+
+////customer login
+Route::post('/checkout/customer-login',[
+    'uses' => 'App\Http\Controllers\CheckoutController@customerlogincheck',
+    'as' => 'customer-login'
+]);
+
+////customer-logout from header
+Route::post('/checkout/customer-logout',[
+    'uses' => 'App\Http\Controllers\CheckoutController@customerlogoutfromheader',
+    'as' => 'customer-logout'
+]);
+
+Route::get('/checkout/new-customer-login',[
+    'uses' => 'App\Http\Controllers\CheckoutController@customerloginfromheader',
+    'as' => 'new-customer-login'
+]);
+
+
+////customer login from fornt
+Route::post('/checkout/new-customer-login-front',[
+    'uses' => 'App\Http\Controllers\CheckoutController@newcustomerloginfront',
+    'as' => 'new-customer-login-front'
+]);
+
+
+
+
+
+
 Route::get('/mail-us',[
     'uses' => 'App\Http\Controllers\NewShopController@mailUs',
     'as' => 'mail-us'
